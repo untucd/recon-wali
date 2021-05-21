@@ -1,0 +1,77 @@
+name: Setup the runner
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  setup_runner:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+      
+      - name: disk space - df
+        run: df -h
+        
+      - name: Fetch bbht repo
+        run: |
+          echo pwd
+          pwd
+          echo
+          
+          git clone https://github.com/netanmangal/bbht
+          cd bbht
+          chmod +x install-bash.sh
+          sudo ./install-bash.sh
+          
+          echo
+          echo ls in ~/bbht
+          
+      - name: disk space - df
+        run: df -h
+        
+      - name: Checking which things are installed without root user
+        run: |
+          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          echo bash file is not sourced to ~/.bash_profile
+          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          
+          echo
+          echo Checking GO
+          go -version
+          echo $GOROOT
+          
+          echo
+          echo Checking GO
+          go -version
+          
+          echo
+          echo Checking nmap
+          nmap -h
+          
+          echo
+          echo Checking sublist3r
+          sublist3r
+          
+          echo
+          echo Checking assetfinder 
+          assetfinder 
+          
+          echo
+          echo Checking waybackurls 
+          waybackurls 
+          
+          echo
+          echo Checking subfinder 
+          subfinder 
+          
+          echo
+          echo Checking Corsy 
+          Corsy 
+          
+          echo
+          echo Checking ruby 
+          ruby -version
+          ruby --version
+          
+          echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
