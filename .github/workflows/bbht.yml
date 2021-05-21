@@ -22,10 +22,11 @@ jobs:
           git clone https://github.com/netanmangal/bbht
           cd bbht
           chmod +x install-bash.sh
-          sudo ./install-bash.sh
+          ./install-bash.sh
           
           echo
           echo ls in ~/bbht
+          ls
           
       - name: disk space - df
         run: df -h
@@ -73,10 +74,10 @@ jobs:
           
           echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
 
-      - name: Checking which things are installed without root user
+      - name: Checking which things are installed without root user but sourced bash_profile
         continue-on-error: true
         run: |
-          sudo -s
+          source ~/.bash_profile
           whoami
           echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           echo bash file is not sourced to ~/.bash_profile
