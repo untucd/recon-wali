@@ -5,6 +5,8 @@ on:
     inputs:
       domain_name:
         required: true
+        default: ''
+        description: Domain name to scan
         
 jobs:
   recon:
@@ -44,7 +46,7 @@ jobs:
       - name: perform recon
         run: |
           chmod +x scripts/ultimate_recon.sh
-          sudo ./scripts/ultimate_recon.sh
+          sudo ./scripts/ultimate_recon.sh -d "${{ github.event.inputs.domain_name }}"
           
       - name: disk space - df
         run: df -h
