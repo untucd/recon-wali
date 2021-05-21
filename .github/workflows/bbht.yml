@@ -19,10 +19,8 @@ jobs:
           pwd
           echo
           
-          git clone https://github.com/netanmangal/bbht
-          cd bbht
-          chmod +x install-bash.sh
-          ./install-bash.sh
+          chmod +x scripts/install-bash.sh
+          sudo ./scripts/install-bash.sh
           
           echo
           echo ls in ~/bbht
@@ -77,44 +75,44 @@ jobs:
       - name: Checking which things are installed without root user but sourced bash_profile
         continue-on-error: true
         run: |
-          source ~/.bash_profile
-          whoami
-          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-          echo bash file is not sourced to ~/.bash_profile
-          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          sudo source ~/.bash_profile
+          sudo whoami
+          sudo echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          sudo echo bash file is not sourced to ~/.bash_profile
+          sudo echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           
-          echo
-          echo Checking GO
-          go version
-          echo $GOROOT
+          sudo echo
+          sudo echo Checking GO
+          sudo go version
+          sudo echo $GOROOT
           
-          echo
-          echo Checking nmap
-          nmap -h
+          sudo echo
+          sudo echo Checking nmap
+          sudo nmap -h
           
-          echo
-          echo Checking sublist3r
-          sublist3r
+          sudo echo
+          sudo echo Checking sublist3r
+          sudo sublist3r
           
-          echo
-          echo Checking assetfinder 
-          assetfinder 
+          sudo echo
+          sudo echo Checking assetfinder 
+          sudo assetfinder 
           
-          echo
-          echo Checking waybackurls 
-          waybackurls 
+          sudo echo
+          sudo echo Checking waybackurls 
+          sudo waybackurls 
           
-          echo
-          echo Checking subfinder 
-          subfinder 
+          sudo echo
+          sudo echo Checking subfinder 
+          sudo subfinder 
           
-          echo
-          echo Checking Corsy 
-          Corsy 
+          sudo echo
+          sudo echo Checking Corsy 
+          sudo Corsy 
           
-          echo
-          echo Checking ruby 
-          ruby -version
-          ruby --version
+          sudo echo
+          sudo echo Checking ruby 
+          sudo ruby -version
+          sudo ruby --version
           
           echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
