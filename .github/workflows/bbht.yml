@@ -19,6 +19,10 @@ jobs:
           pwd
           echo
           
+          echo pwd
+          pwd
+          echo
+          
           chmod +x scripts/install-bash.sh
           sudo ./scripts/install-bash.sh
           
@@ -28,6 +32,12 @@ jobs:
           
           echo
           echo ls in ~
+          cd ~
+          ls ~ -lah
+          
+          echo
+          echo ls in /root
+          cd /root
           ls -lah
           
       - name: disk space - df
