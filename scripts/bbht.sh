@@ -32,7 +32,7 @@ echo -e "\e[1;31m done \e[0m"
 if [[ -z "$GOPATH" ]]; then
 	echo -e "\e[1;31m Installing Golang \e[0m"
 	wget https://dl.google.com/go/go1.15.6.linux-amd64.tar.gz
-	sudo tar -xvf go1.15.6.linux-amd64.tar.gz
+	sudo tar -xf go1.15.6.linux-amd64.tar.gz
 	sudo mv go /usr/local
 	export GOROOT=/usr/local/go
 	export GOPATH=$HOME/go
