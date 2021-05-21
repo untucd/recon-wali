@@ -31,6 +31,7 @@ jobs:
         run: df -h
         
       - name: Checking which things are installed without root user
+        continue-on-error: true
         run: |
           echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           echo bash file is not sourced to ~/.bash_profile
@@ -38,12 +39,53 @@ jobs:
           
           echo
           echo Checking GO
-          go -version
+          go version
           echo $GOROOT
+ 
+          echo
+          echo Checking nmap
+          nmap -h
+          
+          echo
+          echo Checking sublist3r
+          sublist3r
+          
+          echo
+          echo Checking assetfinder 
+          assetfinder 
+          
+          echo
+          echo Checking waybackurls 
+          waybackurls 
+          
+          echo
+          echo Checking subfinder 
+          subfinder 
+          
+          echo
+          echo Checking Corsy 
+          Corsy 
+          
+          echo
+          echo Checking ruby 
+          ruby -version
+          ruby --version
+          
+          echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
+
+      - name: Checking which things are installed without root user
+        continue-on-error: true
+        run: |
+          sudo -s
+          whoami
+          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          echo bash file is not sourced to ~/.bash_profile
+          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           
           echo
           echo Checking GO
-          go -version
+          go version
+          echo $GOROOT
           
           echo
           echo Checking nmap
