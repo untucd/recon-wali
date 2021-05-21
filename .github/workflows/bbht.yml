@@ -24,7 +24,11 @@ jobs:
           
           echo
           echo ls in ~/bbht
-          ls
+          ls -lah
+          
+          echo
+          echo ls in ~
+          ls -lah
           
       - name: disk space - df
         run: df -h
@@ -72,19 +76,18 @@ jobs:
           
           echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
 
-      - name: Checking which things are installed without root user but sourced bash_profile
+      - name: Checking which things are installed root user but sourced bash_profile
         continue-on-error: true
         run: |
-          sudo source ~/.bash_profile
+          source ~/.bash_profile
           sudo whoami
-          sudo echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-          sudo echo bash file is not sourced to ~/.bash_profile
-          sudo echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          echo bash file is not sourced to ~/.bash_profile
+          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           
-          sudo echo
-          sudo echo Checking GO
-          sudo go version
-          sudo echo $GOROOT
+          echo
+          echo Checking GO
+          go version
           
           sudo echo
           sudo echo Checking nmap
@@ -95,24 +98,16 @@ jobs:
           sudo sublist3r
           
           sudo echo
-          sudo echo Checking assetfinder 
-          sudo assetfinder 
-          
-          sudo echo
-          sudo echo Checking waybackurls 
-          sudo waybackurls 
-          
-          sudo echo
           sudo echo Checking subfinder 
-          sudo subfinder 
-          
-          sudo echo
-          sudo echo Checking Corsy 
-          sudo Corsy 
+          subfinder 
           
           sudo echo
           sudo echo Checking ruby 
-          sudo ruby -version
-          sudo ruby --version
+          sudo ruby -v
+          
+          sudo echo
+          sudo echo Checking amass 
+          sudo amass
+
           
           echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
