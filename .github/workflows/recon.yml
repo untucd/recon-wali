@@ -1,0 +1,65 @@
+name: recon
+
+on:
+  workflow_dispatch:
+    inputs:
+      domain_name:
+        required: true
+        
+jobs:
+  recon:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+      
+      - name: disk space - df
+        run: df -h
+        
+      - name: Fetch bbht repo
+        run: |
+          echo pwd
+          pwd
+          echo
+          
+          echo pwd
+          pwd
+          echo
+          
+          chmod +x scripts/install-bash.sh
+          sudo ./scripts/install-bash.sh
+          
+          echo
+          echo ls in ~/bbht
+          ls -lah
+          
+          echo
+          echo ls in ~
+          cd ~
+          ls ~ -lah
+          
+      - name: disk space - df
+        run: df -h
+        
+      - name: perform recon
+        run: |
+          chmod +x scripts/ultimate_recon.sh
+          sudo ./scripts/ultimate_recon.sh
+          
+      - name: disk space - df
+        run: df -h
+          
+      - name: Create local changes
+        run: git add .
+        
+      - name: Commit changes
+        run: |
+          git config --local user.email "ubuntu@bugs.tools"
+          git config --global user.name "untucd"
+          git commit -m "test reporting" -a --allow-empty
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
