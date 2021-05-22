@@ -92,7 +92,7 @@ jobs:
         run: |
           source ~/.bash_profile
           echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-          echo bash file is not sourced to ~/.bash_profile
+          echo bash file is sourced to ~/.bash_profile
           echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           
           echo
@@ -137,6 +137,10 @@ jobs:
           httprobe  
           
           echo
+          echo Checking amass 
+          amass
+          
+          echo
           echo Checking Corsy 
           python3 ~/tools/Corsy/corsy.py 
           
@@ -158,10 +162,11 @@ jobs:
           echo bash file is not sourced to ~/.bash_profile
           echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
           
-          echo
-          echo Checking GO
-          go version
-          
+          sudo echo
+          sudo echo Checking GO
+          sudo go version
+          sudo echo $GOROOT
+ 
           sudo echo
           sudo echo Checking nmap
           sudo nmap -h
@@ -171,16 +176,44 @@ jobs:
           sudo sublist3r
           
           sudo echo
+          sudo echo Checking assetfinder 
+          sudo assetfinder 
+          
+          sudo echo
+          sudo echo Checking waybackurls 
+          sudo waybackurls 
+          
+          sudo echo
           sudo echo Checking subfinder 
-          subfinder 
+          sudo subfinder 
           
           sudo echo
           sudo echo Checking ruby 
           sudo ruby -v
           
           sudo echo
+          sudo echo Checking smuggler 
+          sudo smuggler 
+          
+          sudo echo
+          sudo echo Checking naabu  
+          sudo naabu 
+          
+          sudo echo
+          sudo echo Checking httprobe   
+          sudo httprobe  
+          
+          sudo echo
           sudo echo Checking amass 
           sudo amass
+          
+          sudo echo
+          sudo echo Checking Corsy 
+          sudo python3 ~/tools/Corsy/corsy.py 
+          
+          sudo echo
+          sudo echo Checking altdns 
+          sudo altdns 
 
           
           echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
