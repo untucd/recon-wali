@@ -21,7 +21,7 @@ if [ -z "$domain" ]; then
         exit 1
 fi
 
-mkdir output/$domain
+mkdir -p output/$domain
 
 echo "${BLUE} ######################################################### ${RESET}"
 echo "${BLUE} #                   Finding Subdomains                  # ${RESET}"
