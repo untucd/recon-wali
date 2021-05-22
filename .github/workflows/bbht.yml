@@ -121,10 +121,6 @@ jobs:
           subfinder 
           
           echo
-          echo Checking Corsy 
-          python3 ~/tools/Corsy/corsy.py 
-          
-          echo
           echo Checking ruby 
           ruby -v
           
@@ -143,6 +139,10 @@ jobs:
           echo
           echo Checking httprobe   
           httprobe  
+          
+          echo
+          echo Checking Corsy 
+          python3 ~/tools/Corsy/corsy.py 
          
           echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
           
