@@ -31,6 +31,13 @@ cat .bash_profile >>~/.bash_profile
 source ~/.bash_profile
 echo -e "\e[1;31m done \e[0m"
 
+echo "" >> ~/.bashrc
+echo "" >> ~/.bashrc
+echo "if [ -f ~/.bash_profile ]; then" >> ~/.bashrc
+echo "    . ~/.bash_profile" >> ~/.bashrc
+echo "fi" >> ~/.bashrc
+
+
 #install go
 if [[ -z "$GOPATH" ]]; then
 	echo -e "\e[1;31m Installing Golang \e[0m"
