@@ -93,7 +93,7 @@ echo -e "\e[1;31m installing Sublist3r \e[0m"
 git clone https://github.com/aboul3la/Sublist3r.git
 cd Sublist3r*
 pip install -r requirements.txt
-ln -sfv /root/tools/Sublist3r/sublist3r.py /usr/bin/sublist3r
+ln -sfv /home/runner/tools/Sublist3r/sublist3r.py /usr/bin/sublist3r
 cd ~/tools/
 echo -e "\e[1;31m done \e[0m"
 
@@ -202,7 +202,7 @@ echo -e "\e[1;31m done \e[0m"
 #install smuggler.py
 echo -e "\e[1;31m installing smuggler.py \e[0m"
 git clone https://github.com/defparam/smuggler.git
-ln -sfv /root/tools/smuggler/smuggler.py /usr/bin/smuggler
+ln -sfv /home/runner/tools/smuggler/smuggler.py /usr/bin/smuggler
 echo -e "\e[1;31m done \e[0m"
 
 #install relative-url-extractor
