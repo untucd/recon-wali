@@ -19,6 +19,9 @@ sudo apt-get install -y rename
 sudo apt-get install -y xargs
 sudo apt-get install -y whatweb
 sudo apt-get install -y nikto
+sudo apt-get install gcc libpq-dev -y
+sudo apt-get install python-dev  python-pip -y
+sudo apt-get install python3-dev python3-pip python3-venv python3-wheel -y
 sudo snap install amass
 
 echo -e "\e[1;31m installing bash_profile aliases from recon_profile \e[0m"
@@ -71,9 +74,9 @@ sudo apt-get install -y nmap
 echo -e "\e[1;31m done \e[0m"
 
 #nmap scripts
-cd /usr/share/nmap/
-git clone https://github.com/scipag/vulscan scipag_vulscan
-ln -s `pwd`/scipag_vulscan /usr/share/nmap/scripts/vulscan
+sudo cd /usr/share/nmap/
+sudo git clone https://github.com/scipag/vulscan scipag_vulscan
+sudo ln -s `pwd`/scipag_vulscan /usr/share/nmap/scripts/vulscan
 
 #nmap scripts
 cd /usr/share/nmap/scripts/
@@ -84,6 +87,7 @@ cd ~/tools/
 echo -e "\e[1;31m installing JSParser \e[0m"
 git clone https://github.com/nahamsec/JSParser.git
 cd JSParser*
+pip install wheel
 sudo python setup.py install
 cd ~/tools/
 echo -e "\e[1;31m done \e[0m"
@@ -93,7 +97,7 @@ echo -e "\e[1;31m installing Sublist3r \e[0m"
 git clone https://github.com/aboul3la/Sublist3r.git
 cd Sublist3r*
 pip install -r requirements.txt
-ln -sfv /home/runner/tools/Sublist3r/sublist3r.py /usr/bin/sublist3r
+sudo ln -sfv /home/runner/tools/Sublist3r/sublist3r.py /usr/bin/sublist3r
 cd ~/tools/
 echo -e "\e[1;31m done \e[0m"
 
@@ -202,7 +206,7 @@ echo -e "\e[1;31m done \e[0m"
 #install smuggler.py
 echo -e "\e[1;31m installing smuggler.py \e[0m"
 git clone https://github.com/defparam/smuggler.git
-ln -sfv /home/runner/tools/smuggler/smuggler.py /usr/bin/smuggler
+sudo ln -sfv /home/runner/tools/smuggler/smuggler.py /usr/bin/smuggler
 echo -e "\e[1;31m done \e[0m"
 
 #install relative-url-extractor
@@ -213,6 +217,7 @@ echo -e "\e[1;31m done \e[0m"
 #install altdns
 echo -e "\e[1;31m installing altdns \e[0m"
 cd ~/tools/
+pip install wheel
 pip install py-altdns
 cd ~/tools/
 echo -e "\e[1;31m done \e[0m"
