@@ -129,10 +129,6 @@ jobs:
           smuggler 
           
           echo
-          echo Checking altdns 
-          altdns 
-          
-          echo
           echo Checking naabu  
           naabu 
           
@@ -143,6 +139,11 @@ jobs:
           echo
           echo Checking Corsy 
           python3 ~/tools/Corsy/corsy.py 
+          
+          echo
+          echo Checking altdns 
+          altdns 
+          
          
           echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
           
