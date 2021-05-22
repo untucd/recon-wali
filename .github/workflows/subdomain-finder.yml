@@ -1,0 +1,50 @@
+name: Find subdomains
+
+on:
+  workflow_dispatch:
+    inputs:
+      domain_name:
+        required: true
+        description: domain name
+
+        
+jobs:
+  subdomain-wali:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+      
+      - name: disk space initially - df
+        run: df -h
+        
+      - name: Fetch bbht repo
+        run: |
+          chmod +x scripts/*
+          ./scripts/install-bash.sh
+        
+      - name: disk space after installing bbht tools - df
+        run: df -h
+        
+      - name: find subdomains for "${{ github.event.inputs.domain_name }}"
+        continue-on-error: true
+        run: |
+          ./scripts/subdomain-finder.sh -d "${{ github.event.inputs.domain_name }}"
+          
+      - name: disk space after finding subdomains - df
+        run: df -h
+          
+      - name: Create local changes
+        run: git add .
+        
+      - name: Commit changes
+        run: |
+          git config --local user.email "ubuntu@bugs.tools"
+          git config --global user.name "untucd"
+          git commit -m "test reporting" -a --allow-empty
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
