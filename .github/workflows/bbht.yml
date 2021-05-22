@@ -86,6 +86,67 @@ jobs:
           ruby --version
           
           echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
+          
+      - name: Checking which things are installed without root user but sourced ~/.bash_profile
+        continue-on-error: true
+        run: |
+          source ~/.bash_profile
+          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          echo bash file is not sourced to ~/.bash_profile
+          echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          
+          echo
+          echo Checking GO
+          go version
+          echo $GOROOT
+ 
+          echo
+          echo Checking nmap
+          nmap -h
+          
+          echo
+          echo Checking sublist3r
+          sublist3r
+          
+          echo
+          echo Checking assetfinder 
+          assetfinder 
+          
+          echo
+          echo Checking waybackurls 
+          waybackurls 
+          
+          echo
+          echo Checking subfinder 
+          subfinder 
+          
+          echo
+          echo Checking Corsy 
+          Corsy 
+          
+          echo
+          echo Checking ruby 
+          ruby -v
+          
+          echo
+          echo Checking smuggler 
+          smuggler 
+          
+          echo
+          echo Checking altdns 
+          altdns 
+          
+          echo
+          echo Checking naabu  
+          naabu 
+          
+          echo
+          echo Checking httprobe   
+          httprobe  
+         
+          echo ~~~~~~~~~~~~~~~~ DONE ~~~~~~~~~~~~~
+          
+      
 
       - name: Checking which things are installed root user but sourced bash_profile
         continue-on-error: true
