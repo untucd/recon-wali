@@ -1,4 +1,4 @@
-name: 2. Find subdomains using altdns for "${{ github.event.inputs.domain_name }}"
+name: 2. Find subdomains using altdns
 
 on:
   workflow_dispatch:
