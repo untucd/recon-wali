@@ -1,4 +1,4 @@
-name: Find subdomains
+name: Find subdomains for "${{ github.event.inputs.domain_name }}"
 
 on:
   workflow_dispatch:
