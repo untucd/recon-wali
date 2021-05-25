@@ -14,3 +14,5 @@ woocommercetest.lightrail.com
 www.blog.lightrail.com
 www.lightrail.com
 www.try.lightrail.com
+api.lightrail.com
+apidocs.lightrail.com
