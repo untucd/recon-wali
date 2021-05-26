@@ -25,4 +25,5 @@ echo "${BLUE} ######################################################### ${RESET}
 echo "${BLUE} #                      Running Naabu                    # ${RESET}"
 echo "${BLUE} ######################################################### ${RESET}"
 
-naabu -iL output/$domain/all.txt -c 80 -p - -o output/$domain/naabu_portscan.txt
+(naabu -iL output/$domain/all.txt -c 80 -p - -o output/$domain/naabu_portscan.txt) & pid=$!
+sleep 18000 && kill "$pid" && sleep 20
