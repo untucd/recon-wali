@@ -1,4 +1,4 @@
-name: Find subdomains
+name: 1. Find subdomains
 
 on:
   workflow_dispatch:
