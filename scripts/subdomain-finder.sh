@@ -43,7 +43,15 @@ curl -s https://www.threatcrowd.org/searchApi/v2/domain/report/\?domain\=$domain
 amass enum -passive -d $doamin | tee -a output/$domain/op.txt
 
 (amass enum -active -d $domain -ip | tee -a output/$domain/amass_ips.txt) & pid=$!
-sleep 18000 && kill "$pid" && sleep 20
-cat output/$domain/amass_ips.txt | awk '{print $1}' | tee -a output/$domain/op.txt
 
+time=0
+# check if time is less than 5 hrs and process is also running
+while [[ $time -le 18000 ]] && ps -p $pid > /dev/null; do
+        sleep 20
+        pid=$((pid+20))
+done
+
+if ps -p $pid > /dev/null; then kill $pid; fi
+
+cat output/$domain/amass_ips.txt | awk '{print $1}' | tee -a output/$domain/op.txt
 cat output/$domain/op.txt | sort -u | tee -a output/$domain/all.txt
