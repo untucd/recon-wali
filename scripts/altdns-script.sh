@@ -26,7 +26,7 @@ echo "${GREEN} #                Subdomain Bruteforcing                 # ${RESET
 echo "${GREEN} ######################################################### ${RESET}"
 
 
-(altdns -i output/$domain/all.txt -o output/$domain/data_output -w ~/tools/recon/patterns.txt -r -s output/$domain/results_output.txt -t 250) & pid=$!
+(altdns -i output/$domain/all.txt -o output/$domain/data_output -w ~/tools/recon/patterns.txt -r -s output/$domain/results_output.txt -t 350) & pid=$!
 sleep 18000 && kill "$pid" && sleep 20
 
 mv output/$domain/results_output.txt output/$domain/dns_op.txt
