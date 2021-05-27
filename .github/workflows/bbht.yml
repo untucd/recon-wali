@@ -61,6 +61,7 @@ jobs:
           echo Checking nmap
           nmap -h
           
+          
           echo
           echo Checking sublist3r
           sublist3r
@@ -100,6 +101,14 @@ jobs:
           echo
           echo Checking Corsy 
           python3 ~/tools/Corsy/corsy.py 
+          
+          echo
+          echo Checking nmap with sudo
+          sudo nmap -h
+          
+          echo
+          echo Checking naabu with sudo
+          sudo naabu -h
           
           echo
           echo Checking altdns 
