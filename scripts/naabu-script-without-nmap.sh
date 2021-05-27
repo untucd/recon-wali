@@ -26,4 +26,12 @@ echo "${BLUE} #                      Running Naabu                    # ${RESET}
 echo "${BLUE} ######################################################### ${RESET}"
 
 (naabu -iL output/$domain/all.txt -c 80 -p - -o output/$domain/naabu_portscan.txt) & pid=$!
-sleep 18000 && kill "$pid" && sleep 20
+
+time=0
+# check if time is less than 5 hrs and process is also running
+while [[ $time -le 18000 ]] && ps -p $pid > /dev/null; do
+        sleep 20
+        time=$((time+20))
+done
+
+if ps -p $pid > /dev/null; then kill $pid; fi
