@@ -1,0 +1,57 @@
+name: 4. Httprobe - find alive on output of httprobe
+
+on:
+  workflow_dispatch:
+    inputs:
+      domain_name:
+        required: true
+        description: domain name
+     
+
+jobs:
+  port-scanning-wali:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+        
+      - name: remove android
+        run: sudo rm /usr/local/lib/android/sdk -rf
+        
+      - name: Fetch bbht repo and setup runner with bbht tools
+        run: |
+          chmod +x scripts/*
+          ./scripts/install-bash.sh
+        
+      - name: disk space after installing bbht tools - df
+        run: df -h
+       
+        
+      - name: find alive domains:ports on output of naabu for "${{ github.event.inputs.domain_name }}"
+        continue-on-error: true
+        run: |
+          ./scripts/httprobe-script.sh -d "${{ github.event.inputs.domain_name }}
+          
+
+      - name: ls on output/"${{ github.event.inputs.domain_name }}"
+        continue-on-error: true
+        run: ls output/"${{ github.event.inputs.domain_name }}" -lah
+          
+      - name: disk space after finding subdomains - df
+        run: df -h
+          
+      - name: Create local changes
+        run: git add .
+        
+      - name: Commit changes
+        run: |
+          git config --local user.email "ubuntu@bugs.tools"
+          git config --global user.name "untucd"
+          git commit -m "4. httprobe for ${{ github.event.inputs.domain_name }}" -a --allow-empty
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}     
+      
