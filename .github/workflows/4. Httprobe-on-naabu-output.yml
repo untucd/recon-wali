@@ -27,7 +27,7 @@ jobs:
       - name: find alive domains:ports on output of naabu for "${{ github.event.inputs.domain_name }}"
         continue-on-error: true
         run: |
-          ./scripts/httprobe-script.sh -d "${{ github.event.inputs.domain_name }}
+          ./scripts/httprobe-script.sh -d ${{ github.event.inputs.domain_name }}
           
 
       - name: ls on output/"${{ github.event.inputs.domain_name }}"
