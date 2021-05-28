@@ -45,7 +45,7 @@ jobs:
         run: |
           git config --local user.email "ubuntu@bugs.tools"
           git config --global user.name "untucd"
-          git commit -m "test reporting" -a --allow-empty
+          git commit -m "2. altdns for ${{ github.event.inputs.domain_name }}" -a --allow-empty
           
       - name: Push changes
         uses: ad-m/github-push-action@master
