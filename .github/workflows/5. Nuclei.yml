@@ -19,6 +19,9 @@ jobs:
         run: |
           chmod +x scripts/*
           ./scripts/install-bash.sh
+          
+      - name: ls on ~/tools
+        run: ls ~/tools/ -lah
         
       - name: disk space after installing bbht tools - df
         run: df -h
