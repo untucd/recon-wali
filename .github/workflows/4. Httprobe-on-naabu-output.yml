@@ -14,10 +14,7 @@ jobs:
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v2
-        
-      - name: remove android
-        run: sudo rm /usr/local/lib/android/sdk -rf
-        
+    
       - name: Fetch bbht repo and setup runner with bbht tools
         run: |
           chmod +x scripts/*
