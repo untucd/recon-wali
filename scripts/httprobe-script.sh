@@ -27,7 +27,7 @@ echo "${BLUE} #              Checking for alive subdomains            # ${RESET}
 echo "${BLUE} ######################################################### ${RESET}"
 
 
-(cat naabu_portscan.txt | httprobe -c 100 | tee -a alive2.txt) & pid=$!
+(cat output/$domain/naabu_portscan.txt | httprobe -c 100 | tee -a output/$domain/alive2.txt) & pid=$!
 
 time=0
 # check if time is less than 5 hrs and process is also running
@@ -39,5 +39,5 @@ done
 if ps -p $pid > /dev/null; then kill $pid; fi
 
 
-cat alive2.txt | sort -u | tee -a alive.txt
-rm alive2.txt
+cat output/$domain/alive2.txt | sort -u | tee -a output/$domain/alive.txt
+rm output/$domain/alive2.txt
