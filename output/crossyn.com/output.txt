@@ -1,0 +1,15 @@
+sp-portal.staging.crossyn.com:dev.atsc.nl.
+drivers.test.crossyn.com:185.160.156.72
+static.crossyn.com:185.160.156.38
+api.test.crossyn.com:185.160.156.94
+www-test.crossyn.com:185.160.156.37
+vpn.crossyn.com:185.160.156.3
+servicedesk.staging.crossyn.com:dev.atsc.nl.
+api.staging.crossyn.com:dev.atsc.nl.
+drivers.staging.crossyn.com:dev.atsc.nl.
+workshops.test.crossyn.com:185.160.156.72
+secure.test.crossyn.com:185.160.156.72
+secure.crossyn.com:185.160.156.89
+api.crossyn.com:185.160.156.94
+telekomb2b-test.crossyn.com:185.160.156.75
+sp-portal.test.crossyn.com:185.160.156.72
